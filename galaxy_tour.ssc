@@ -124,3 +124,7 @@ for(i=0; i<100; i++)
 //
 core.wait(2.0);
 core.setGuiVisible(true);
+
+// Local Variables:
+// mode: javascript
+// End:
