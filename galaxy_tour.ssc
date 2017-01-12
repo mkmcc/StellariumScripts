@@ -2,11 +2,11 @@
 // "out" means zoom out, "back" means zoom out a little
 //
 var galaxies = new Array("M31", "M32", "out",
-                         // "M101", "out",
-                         // "NGC 5194", "out",
-                         // // "M63", "out",
-                         // "M105", "back", "NGC 3384", "out",
-                         // // "M87", "back", "M89", "out",
+                         "M101", "out",
+                         "NGC 5194", "out",
+                         // "M63", "out",
+                         "M105", "back", "NGC 3384", "out",
+                         // "M87", "back", "M89", "out",
                          "Centaurus A")
 
 
