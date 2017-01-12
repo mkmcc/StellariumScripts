@@ -1,0 +1,126 @@
+// List of galaxies to zoom to
+// "out" means zoom out, "back" means zoom out a little
+//
+var galaxies = new Array("M31", "M32", "out",
+                         // "M101", "out",
+                         // "NGC 5194", "out",
+                         // // "M63", "out",
+                         // "M105", "back", "NGC 3384", "out",
+                         // // "M87", "back", "M89", "out",
+                         "Centaurus A")
+
+
+// Start with a nice, north-looking view, some hours before sunset
+//
+core.setGuiVisible(false);
+
+core.clear("natural");
+core.setDate("2017:01:11T12:00:00","local");
+core.setTimeRate(1);
+
+LandscapeMgr.setFlagLandscape(true);
+LandscapeMgr.setFlagAtmosphere(true);
+LandscapeMgr.setFlagFog(true);
+
+core.setMilkyWayVisible(true);
+core.setMilkyWayIntensity(1.0);
+
+alt = 45;
+core.moveToAltAzi(alt, 0, 3);
+StelMovementMgr.zoomTo(120,3);
+
+LandscapeMgr.setCurrentLandscapeID("Guereins");
+
+core.wait(3);
+
+
+// Speed up time so we watch the sun set, stars come out, and circle
+// the north star.  Cassiopeia and the Big Dipper circle the north
+// star.
+//
+core.setTimeRate(2000);
+core.wait(15);
+core.setTimeRate(1);
+
+
+// Now, turn off air and ground so we can begin our tour
+//
+LandscapeMgr.setFlagLandscape(false);
+LandscapeMgr.setFlagAtmosphere(false);
+LandscapeMgr.setFlagFog(false);
+
+core.wait(2);
+
+
+// and bring up constellations and names so we have some orientation
+//
+ConstellationMgr.setFlagArt(false);
+ConstellationMgr.setFlagBoundaries(false);
+ConstellationMgr.setFlagLines(true);
+ConstellationMgr.setFlagLabels(true);
+
+core.wait(2);
+
+
+// Loop over galaxies.  Zoom in to show, then out again
+//
+var fov = 120;
+
+for (i=0; i<galaxies.length; i++)
+{
+    objName = galaxies[i];
+
+    if (objName == "out") // zoom ALL the way out
+    {
+        StelMovementMgr.zoomTo(120,5);
+        core.wait(5);
+    }
+    else if (objName == "back") // zoom out to default level
+    {
+        StelMovementMgr.zoomTo(fov,2);
+    }
+    else
+    {
+        // auto zoom in to the galaxy
+        core.selectObjectByName(objName, true);
+        StelMovementMgr.autoZoomIn(4);
+        core.wait(4);
+
+        // but stellarium doesn't zoom in very far, so go in another
+        // factor of 6!
+        fov = StelMovementMgr.getAimFov();
+        StelMovementMgr.zoomTo(fov/6, 3);
+        core.wait(4);
+    }
+}
+
+
+// now, go back to the starting point and turn on the ground so we can
+// see the milky way
+//
+alt = 45;
+StelMovementMgr.zoomTo(160,3);
+core.wait(3);
+core.moveToAltAzi(alt, 0, 3);
+core.wait(3);
+
+LandscapeMgr.setFlagLandscape(true);
+ConstellationMgr.setFlagLines(false);
+ConstellationMgr.setFlagLabels(false);
+
+core.wait(3);
+
+
+// dial up the milky way to make it more prominent
+//
+for(i=0; i<100; i++)
+{
+    core.setMilkyWayIntensity(1.0 + 4.0*i/100);
+    core.wait(0.01);
+}
+
+
+// close up shop
+//
+core.wait(2.0);
+core.setGuiVisible(true);
