@@ -44,7 +44,7 @@ core.wait(3);
 // the north star.  Cassiopeia and the Big Dipper circle the north
 // star.
 //
-core.setTimeRate(1400);
+core.setTimeRate(1350);
 core.wait(25);
 core.setTimeRate(1);
 
