@@ -1,3 +1,23 @@
+// galaxy_tour.ssc: shows a handful of galaxies for a public talk
+//
+// this is for santa barbara in winter, in accordance with the talk.
+//
+// the tour starts around noon, so we watch the sun set, the moon come
+// out, and then see the stars revolve around the north star.  in
+// particular, you can see cassiopeia and the big dipper revolve
+// around the north star.
+//
+// next, turn off the ground and atmosphere, and turn on
+// constellations so we have some sense of orientation.  zoom into the
+// first galaxy, zoom out, and so on until the end.
+//
+// finally, go back home, turn on the ground again.  and dial up the
+// milky way intensity to show that we live in a galaxy too.
+//
+// made for stellarium v 0.15.1
+//
+
+
 // List of galaxies to zoom to
 // "out" means zoom out, "back" means zoom out a little
 //
@@ -10,28 +30,30 @@ var galaxies = new Array("M31", "M32", "out",
                          "Centaurus A")
 
 
+
 // Start with a nice, north-looking view, some hours before sunset
 //
 core.setGuiVisible(false);
 
+// location and landscape
 core.clear("natural");
 core.setObserverLocation("Santa Barbara, United States");
 core.setDate("2017:01:11T12:00:00","local");
 core.setTimeRate(1);
 
+LandscapeMgr.setCurrentLandscapeID("Guereins");
 LandscapeMgr.setFlagLandscape(true);
 LandscapeMgr.setFlagAtmosphere(true);
 LandscapeMgr.setFlagFog(true);
 
+// tweak sky appearance
 core.setMilkyWayVisible(true);
 core.setMilkyWayIntensity(1.0);
 
 StelSkyDrawer.setAbsoluteStarScale(4.0);
 StelSkyDrawer.setRelativeStarScale(1.1);
 
-
-LandscapeMgr.setCurrentLandscapeID("Guereins");
-
+// start off looking toward the north star
 StelMovementMgr.setFlagLockEquPos(false);
 
 alt = 45;
@@ -69,7 +91,9 @@ ConstellationMgr.setFlagLabels(true);
 core.wait(2);
 
 
-// Loop over galaxies.  Zoom in to show, then out again
+
+// loop over galaxies.  zoom in to show each galaxy, then out again to
+// show the distances between things
 //
 var fov = 120;
 
@@ -102,6 +126,7 @@ for (i=0; i<galaxies.length; i++)
 }
 
 
+
 // now, go back to the starting point and turn on the ground so we can
 // see the milky way
 //
@@ -125,6 +150,7 @@ for(i=0; i<100; i++)
     core.setMilkyWayIntensity(1.0 + 4.0*i/100);
     core.wait(0.01);
 }
+
 
 
 // close up shop
