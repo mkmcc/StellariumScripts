@@ -28,6 +28,9 @@ core.setMilkyWayIntensity(1.0);
 alt = 45;
 core.moveToAltAzi(alt, 0, 3);
 StelMovementMgr.zoomTo(120,3);
+StelSkyDrawer.setAbsoluteStarScale(4.0);
+StelSkyDrawer.setRelativeStarScale(1.1);
+
 
 LandscapeMgr.setCurrentLandscapeID("Guereins");
 
