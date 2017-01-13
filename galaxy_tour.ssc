@@ -41,8 +41,8 @@ core.wait(3);
 // the north star.  Cassiopeia and the Big Dipper circle the north
 // star.
 //
-core.setTimeRate(2000);
-core.wait(15);
+core.setTimeRate(1400);
+core.wait(25);
 core.setTimeRate(1);
 
 
@@ -102,7 +102,7 @@ for (i=0; i<galaxies.length; i++)
 // see the milky way
 //
 alt = 45;
-StelMovementMgr.zoomTo(160,3);
+StelMovementMgr.zoomTo(120,3);
 core.wait(3);
 core.moveToAltAzi(alt, 0, 3);
 core.wait(3);
