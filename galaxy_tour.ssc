@@ -15,6 +15,7 @@ var galaxies = new Array("M31", "M32", "out",
 core.setGuiVisible(false);
 
 core.clear("natural");
+core.setObserverLocation("Santa Barbara, United States");
 core.setDate("2017:01:11T12:00:00","local");
 core.setTimeRate(1);
 
