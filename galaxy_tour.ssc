@@ -82,9 +82,11 @@ core.wait(3);
 // the north star.  Cassiopeia and the Big Dipper circle the north
 // star.
 //
-core.setTimeRate(1350);
-core.wait(25);
+core.setTimeRate(900);
+core.wait(37);
 core.setTimeRate(1);
+
+core.wait(10);
 
 
 // Now, turn off air and ground so we can begin our tour
@@ -93,7 +95,7 @@ LandscapeMgr.setFlagLandscape(false);
 LandscapeMgr.setFlagAtmosphere(false);
 LandscapeMgr.setFlagFog(false);
 
-core.wait(2);
+core.wait(5);
 
 
 // and bring up constellations and names so we have some orientation
@@ -103,7 +105,7 @@ ConstellationMgr.setFlagBoundaries(false);
 ConstellationMgr.setFlagLines(true);
 ConstellationMgr.setFlagLabels(true);
 
-core.wait(2);
+core.wait(5);
 
 
 
