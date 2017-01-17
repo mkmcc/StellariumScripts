@@ -23,7 +23,7 @@
 //
 var galaxies = new Array(["M31",   10, true],
                          ["pause", 10, false],
-                         ["M32",    5, false],
+                         ["M32",   10, false],
                          ["pause",  4, false],
                          ["out",   10, false],
                          ["pause",  3, false],
@@ -35,14 +35,14 @@ var galaxies = new Array(["M31",   10, true],
                          ["out",  5, false],
                          //
                          ["M105",     4, false],
-                         ["NGC 3384", 4, false],
+                         // ["NGC 3384", 4, false],
                          ["M96",      2, false],
                          ["back",     1, false],
                          ["M95",      2, false],
                          ["out",      5, false],
                          //
                          ["Centaurus A", 8, true],
-                         ["pause",       8, false])
+                         ["pause",       2, false])
 
 
 
