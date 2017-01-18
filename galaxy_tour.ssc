@@ -24,24 +24,36 @@
 var galaxies = new Array(["M31",   10, true],
                          ["pause", 10, false],
                          ["M32",   10, false],
-                         ["pause",  4, false],
+                         ["pause", 10, false],
                          ["out",   10, false],
                          ["pause",  3, false],
                          //
                          ["M101", 4, true],
                          ["out",  5, false],
                          //
+                         ["M102",  4, true],
+                         ["pause", 4, false],
+                         ["out",   5, false],
+                         //
+                         ["M104",  4, true],
+                         ["out",   5, false],
+                         //
                          ["M51",  4, true],
                          ["out",  5, false],
                          //
+                         ["M81",  4, true],
+                         ["back", 1, false],
+                         ["M82",  4, false],
+                         ["out",  5, false],
+                         //
                          ["M105",     4, false],
-                         // ["NGC 3384", 4, false],
+                         ["NGC 3384", 4, false],
                          ["M96",      2, false],
                          ["back",     1, false],
                          ["M95",      2, false],
                          ["out",      5, false],
                          //
-                         ["Centaurus A", 8, true],
+                         ["Centaurus A", 5, true],
                          ["pause",       2, false])
 
 
@@ -65,7 +77,7 @@ LandscapeMgr.setFlagFog(true);
 core.setMilkyWayVisible(true);
 core.setMilkyWayIntensity(1.0);
 
-StelSkyDrawer.setAbsoluteStarScale(4.0);
+StelSkyDrawer.setAbsoluteStarScale(2.0);
 StelSkyDrawer.setRelativeStarScale(1.1);
 
 // start off looking toward the north star
@@ -167,7 +179,7 @@ LandscapeMgr.setFlagLandscape(true);
 ConstellationMgr.setFlagLines(false);
 ConstellationMgr.setFlagLabels(false);
 
-core.wait(3);
+core.wait(10);
 
 
 // dial up the milky way to make it more prominent
